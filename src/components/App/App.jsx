@@ -55,10 +55,13 @@ function App() {
 
       {total > 0 ? (
         <Feedback
-          good={feedback.good}
-          neutral={feedback.neutral}
-          bad={feedback.bad}
-          total={total}
+          data={{
+            ...feedback,
+            total: total,
+            positive: Math.round(
+              ((feedback.good + feedback.neutral) / total) * 100
+            ),
+          }}
         />
       ) : (
         <Notification />

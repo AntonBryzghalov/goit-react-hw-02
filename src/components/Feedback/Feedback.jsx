@@ -1,4 +1,4 @@
-function Feedback({ good, neutral, bad, total }) {
+function Feedback({ data: { good, neutral, bad, total, positive } }) {
   return (
     <>
       <p>Good: {good}</p>
@@ -7,7 +7,7 @@ function Feedback({ good, neutral, bad, total }) {
       {total > 0 && (
         <>
           <p>Total: {total}</p>
-          <p>Positive: {Math.round(((good + neutral) / total) * 100)}%</p>
+          <p>Positive: {positive}%</p>
         </>
       )}
     </>
